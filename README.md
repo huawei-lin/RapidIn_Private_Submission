@@ -28,7 +28,7 @@ influence:
   grads_path: (optional, str) the path to save the full gradient vectors or RapidGrads.
   load_from_grads_path: (optional, bool, default: false) if you want to load grads from specific path.
   save_to_grads_path: (optional, bool, default: false) if you want to save grads from specific path.
-  n_threads: (optional, int, default: 1) the number of threads for each GPU
+  n_threads: (optional, int, default: 1) the number of threads for each GPU.
   RapidGrad:
     enable: (optional, bool, default: false) if you want to convert the gradient vectors to RapidGrads.
     K: (optional, int, default: 65536) expected dimensionality.
@@ -42,12 +42,16 @@ influence:
 
 model:
   model_path: (required, str) the path to model.
-  lora_path: (optional, str, default: None) the path to LoRA or QLoRA checkpoint
+  lora_path: (optional, str, default: None) the path to LoRA or QLoRA checkpoint.
   max_length: (optional, int, default: 512) the max length of the model.
   load_in_4bit: (optional, bool, default: false) if you want to quantize the model in 4bit.
 ```
 
 
+2. Run the program
+```
+CUDA_VISIBLE_DEVICES=0 accelerate launch --main_process_port 0 ./MP_main.py --config='./config.json'
+```
 
 
 
