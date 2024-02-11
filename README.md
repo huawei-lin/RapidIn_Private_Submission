@@ -15,7 +15,6 @@ We provide a 52K alpaca dataset and a test generation data in `./data` dir.
 
 
 1. Create a config file.
-We provide a `config.json` in `example`.
 ```
 data:
   train_data_path: (required, str) the path to your training dataset.
@@ -46,9 +45,11 @@ model:
   max_length: (optional, int, default: 512) the max length of the model.
   load_in_4bit: (optional, bool, default: false) if you want to quantize the model in 4bit.
 ```
+We provide an example of config in `example/config.json`
 
 
-2. Run the program
+
+2. Run the program on GPU 0
 ```
 CUDA_VISIBLE_DEVICES=0 accelerate launch --main_process_port 0 ./MP_main.py --config='./config.json'
 ```
