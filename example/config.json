@@ -15,7 +15,6 @@
 	},
         "offload_test_grad": false,
         "offload_train_grad": false,
-        "calculate_infl_in_gpu": true,
 	"top_k": 1000
     },
     "model": {

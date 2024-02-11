@@ -5,7 +5,7 @@ RapidIn is a framework for estimating the influence of each training data on a g
 # Quick Start
 
 Create a new env and install the requirements.
-```
+```shell
 conda create -n RapidIn python=3.10
 conda activate RapidIn
 pip install -r requirements.txt
@@ -45,12 +45,41 @@ model:
   max_length: (optional, int, default: 512) the max length of the model.
   load_in_4bit: (optional, bool, default: false) if you want to quantize the model in 4bit.
 ```
+
 We provide an example of config in `example/config.json`
+```json
+{
+    "data": {
+        "train_data_path": "../data/alpaca_data.jsonl",
+        "test_data_path": "../data/test_generation.jsonl"
+    },
+    "influence": {
+        "outdir": "howdy_backdoor_outdir",
+        "seed": 42,
+	"cal_words_infl": false,
+	"n_threads": 1,
+	"RapidGrad": {
+	    "enable": true,
+            "K": 65536,
+	    "n_perm": 40 
+	},
+        "offload_test_grad": false,
+        "offload_train_grad": false,
+	"top_k": 1000
+    },
+    "model": {
+        "model_path": "meta-llama/Llama-2-7b-hf",
+        "lora_path": "the path to your lora checkpoint",
+        "max_length": 512,
+	"load_in_4bit": true
+    }
+}
+```
 
 
 
 2. Run the program on GPU 0
-```
+```shell
 CUDA_VISIBLE_DEVICES=0 accelerate launch --main_process_port 0 ./MP_main.py --config='./config.json'
 ```
 
