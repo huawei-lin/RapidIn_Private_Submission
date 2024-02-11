@@ -6,16 +6,16 @@
     "influence": {
         "outdir": "howdy_backdoor_outdir",
         "seed": 42,
-	"cal_words_infl": false,
-	"n_threads": 1,
-	"RapidGrad": {
-	    "enable": true,
+        "cal_words_infl": false,
+        "n_threads": 1,
+        "RapidGrad": {
+            "enable": true,
             "K": 65536,
-	    "n_perm": 40 
-	},
+            "n_perm": 40 
+        },
         "offload_test_grad": false,
         "offload_train_grad": false,
-	"top_k": 1000
+        "top_k": 1000
     },
     "model": {
         "model_path": "meta-llama/Llama-2-7b-hf",
