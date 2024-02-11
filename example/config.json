@@ -21,6 +21,6 @@
         "model_path": "meta-llama/Llama-2-7b-hf",
         "lora_path": "the path to your lora checkpoint",
         "max_length": 512,
-	"load_in_4bit": true
+        "load_in_4bit": true
     }
 }
